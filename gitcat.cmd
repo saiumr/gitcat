@@ -40,7 +40,7 @@ set newversion_file=version_new.txt
 set chlist_file=ChangeListDraft.txt
 if exist %newversion_file% type nul>%newversion_file%
 if exist %chlist_file% type nul>%chlist_file%
-echo Change List:>>..\%chlist_file%
+echo Change List:>>%chlist_file%
 
 if exist %lastversion_file% (
   echo Generate %newversion_file%:[repo_name -^> current branch]
