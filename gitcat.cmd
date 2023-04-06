@@ -182,7 +182,7 @@ echo  ^> ^^ ^<   and/or modify it under the terms of the GNU General
 echo          Public License as published by the Free Software Foundation,
 echo either version 3 of the License, or (at your option) any later version.
 echo.
-echo Use '.\gitcat -h/--help' look out usage.
+echo Use '.\gitcat -h/--help' look out usage. And do you want to feed gitcat? See: https://github.com/saiumr/gitcat/tree/master
 
 :Exit
 echo on
