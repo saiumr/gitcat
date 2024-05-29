@@ -3,9 +3,21 @@
 @ECHO * Learn bat script from Beng Dou's blog, thank you. *
 @ECHO *****************************************************
 
-@set command=%1
-@if not defined command (goto exit)
-@if %command%==-e (goto proc)
+@set arg1=%1
+@set arg2=%2
+@set arg3=%3
+@if not defined arg2 (
+  echo "no arg2"
+) else (
+  echo "arg2 is %arg2%"
+)
+@if not defined arg3 (
+  echo "no arg3"
+) else (
+  echo "arg2 is %arg3%"
+)
+@if not defined arg1 (goto exit)
+@if "%arg1%"=="-e" (goto proc) else if "%arg1%"=="-c" (goto proc2) else (goto exit)
 
 :proc
 @ECHO %DATE%-%TIME% at:
@@ -39,6 +51,28 @@ PAUSE
 @REM echo content > file.txt -> override write
 @REM echo content >> file.txt -> add content
 @REM IF, FOR refer to link.
+
+:proc2
+@echo off
+set /p choice=Do you want to continue?(Y/n default N): || set "choice=N"
+@REM if "%choice%"=="Y" goto continue
+@REM if "%choice%"=="y" goto continue
+@REM if "%choice%"=="N" goto cancel
+@REM if "%choice%"=="n" goto cancel
+if /I "%choice%"=="Y" goto continue
+if /I "%choice%"=="N" goto cancel
+
+:continue
+echo Continuing with the operation...
+@REM 执行继续操作的代码
+pause
+goto exit
+
+:cancel
+echo Operation canceled.
+pause
+goto exit
+@echo on
 
 :exit
 @ECHO Good Bye!
